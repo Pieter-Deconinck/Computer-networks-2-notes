@@ -52,6 +52,7 @@
         ip address 192.168.99.252 255.255.255.0
         no shut
         exit
+        (repeat for each switch)
 
 <details>
 Ignore this section
@@ -67,9 +68,56 @@ Ignore this section
 
 </details>
 
-
-
 # Part 3: Configure Static Trunking
+
+- Configure the link between SWA and SWB as a static trunk. Disable dynamic trunking on this port.
+
+        (on SWA)
+        conf t
+        interface g0/1
+        switchport mode trunk
+        switchport trunk native vlan 100
+        switchport trunk allowed vlan 10,20,30,40,99,100
+        switchport nonegotiate
+        
+        (on SWB)
+        conf t
+        interface g0/1
+        switchport mode trunk
+        switchport trunk native vlan 100
+        switchport trunk allowed vlan 10,20,30,40,99,100
+        switchport nonegotiate
 
 # Part 4: Configure Dynamic Trunking
 
+- Assume that the trunk port on SWC is set to the default DTP mode for 2960 switches. Configure G0/2 on SWA so that it successfully negotiates trunking with SWC.
+
+        (on SWC)
+        conf t
+        interface g0/1
+        switchport trunk native vlan 100
+
+        (on SWA)
+        conf t
+        interface g0/2
+        switchport trunk native vlan 100
+        switchport mode dynamic desirable
+
+
+# Extra Trunk commands
+
+- Verify trunk config
+
+        show interface g0/1 switchport
+        
+- Reset trunk config
+
+        interface g0/1
+        no switchport trunk allowed vlan
+        no switchport trunk native vlan
+        end
+
+- Disable nonegotiate
+
+        interface g0/1
+        no switchport nonegotiatie
