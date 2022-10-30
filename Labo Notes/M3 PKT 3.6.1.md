@@ -54,6 +54,8 @@
         exit
 
 <details>
+Ignore this section
+        
         conf t
         interface vlan 10
         ip address 192.168.10.10 255.255.255.0
@@ -62,6 +64,7 @@
         (repeat for other VLANs and interfaces)
         (this also makes the Vlans visible with show interface vlan 10)
         (instead of only show vlan brief)
+
 </details>
 
 
