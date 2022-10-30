@@ -32,6 +32,36 @@
         show vlan brief
         (to check if the port has been assigned correctly)
 
+- Configure the Voice VLAN port
+
+        conf t
+        interface f0/4
+        switchport mode access
+        switchport access vlan 10
+        mls qos trust cos
+        switchport access vlan 40
+        end
+
+- Configure the virtual management interfaces
+
+        conf t
+        interface vlan 99
+        ip address 192.168.99.252 255.255.255.0
+        no shut
+        exit
+
+||Ignore this||
+||      conf t
+        interface vlan 10
+        ip address 192.168.10.10 255.255.255.0
+        no shutdown  
+
+        (repeat for other VLANs and interfaces)
+        (this also makes the Vlans visible with show interface vlan 10)
+        (instead of only show vlan brief)
+||
+
+
 # Part 3: Configure Static Trunking
 
 # Part 4: Configure Dynamic Trunking
