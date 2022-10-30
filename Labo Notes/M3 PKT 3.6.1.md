@@ -8,6 +8,9 @@
 
 ### Topology
 
+![image](https://user-images.githubusercontent.com/100133263/198879556-c47f3479-cb2b-4c07-93bc-0cb27ab1cf02.png)
+
+
 # Part 1: Configure VLANs
 
 - Configure VLANs on all three switches. Refer to the VLAN Table. Note that the VLAN names must match the values in the table exactly.
