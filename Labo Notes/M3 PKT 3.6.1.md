@@ -53,8 +53,8 @@
         no shut
         exit
 
-||Ignore this||
-||      conf t
+<details>
+        conf t
         interface vlan 10
         ip address 192.168.10.10 255.255.255.0
         no shutdown  
@@ -62,7 +62,8 @@
         (repeat for other VLANs and interfaces)
         (this also makes the Vlans visible with show interface vlan 10)
         (instead of only show vlan brief)
-||
+</details>
+
 
 
 # Part 3: Configure Static Trunking
