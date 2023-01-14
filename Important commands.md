@@ -24,6 +24,10 @@ Enter switch virtual interface: ``interface vlan 99``
 configure management interface ipv4: ``ip address 192.168.0.10 255.255.255.0``  
 configure management interface ipv6: ``ipv6 address 2001:db8:acad:99::1/64``  
 enable management interface: ``no shutdown``  
+``show vlan``  
+``interface range gig1/0/1-24``  
+``switchport mode access``  
+``switchport acces vlan 99`  
 copy running to startup: ``copy running-config startup-config``  
 
 ## Configure Default gateway
